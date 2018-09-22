@@ -1,10 +1,26 @@
 import React from 'react'
+import Userinput from './Userinput'
+import Listofusers from './Listofusers'
+import { getUsers } from '../actions/users'
+import { connect } from 'react-redux';
+
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
+  componentDidMount() {
+    this.props.dispatch(getUsers())
+  }
 
 
-const App = () => (
-  <div className='app-container'>
-   
-  </div>
-)
+  render() {
+    return (
+      <div className='app-container'>
+        <Userinput />
+        <Listofusers />
+      </div>
+      )}
+}
 
-export default App
+export default connect(mapStateToProps)(App)

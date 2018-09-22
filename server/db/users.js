@@ -1,9 +1,17 @@
-const connection = require('knex')(config)
+const connection = require('./connection')
 
-function createUser(username) {
-const conn = connection
-return conn('users')
-    .insert({username})
+function getUsers() {
+    const conn = connection
+    return conn ('users')
+    .select()
 }
 
-module.exports = {createUser}
+function createUser(username) {
+    const conn = connection
+    return conn('users')
+    .insert(username)
+}
+
+
+
+module.exports = {createUser, getUsers}

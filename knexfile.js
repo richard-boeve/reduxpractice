@@ -16,14 +16,15 @@ module.exports = {
       database: 'my_db',
       user:     'username',
       password: 'password'
-    },
+      },
     pool: {
       min: 2,
       max: 10
     },
+    useNullAsDefault: true
+    },
     migrations: {
       tableName: 'knex_migrations'
-    }
   },
 
   production: {
@@ -37,9 +38,11 @@ module.exports = {
       min: 2,
       max: 10
     },
+    useNullAsDefault: true
+    },
     migrations: {
       tableName: 'knex_migrations'
     }
-  }
+  
 
 };
